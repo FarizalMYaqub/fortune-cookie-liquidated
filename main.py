@@ -67,15 +67,15 @@ def write_entry(text, path):
 
 
 def run():
-    """Validate the fortune, then write it. Returns (chars, path)."""
+    """Validate the fortune, then write it. Returns (chars, words, path)."""
     fortune = validate_fortune(FORTUNE)
     count = write_entry(fortune, OUTPUT_PATH)
-    return count, OUTPUT_PATH
+    return count, len(fortune.split()), OUTPUT_PATH
 
 
 def main():
-    count, path = run()
-    print("Wrote %d chars to %s" % (count, path))
+    count, words, path = run()
+    print("Wrote %d chars, %d words to %s" % (count, words, path))
 
 
 if __name__ == "__main__":
